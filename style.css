@@ -1,0 +1,19 @@
+body{
+  background-color:#eee;
+
+}
+h1{
+  color: rgb(134, 130, 136);
+  font-size:20px;
+  padding-top: 10px;
+}
+input{
+  border:solid;
+  border-color:rgb(199, 104, 16);
+}
+
+.font
+{
+  font-size: 20px;    /* 文字サイズ指定 */
+  color: #F44336;     /* 文字色指定 */
+}
