@@ -1,2 +1,78 @@
+
 <!DOCTYPE html>
-<head>Hello</head>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+
+    <title>素数検索</title>
+</head>
+<body>
+    <h1>素数検索</h1>
+    <form id ="search">
+        <input id = "number" name="number" type="number" required>
+        <button type="button" id = "btn">検索</button>
+    </form>
+    <div Id="output"></div>
+    <script>
+
+        var number = document.getElementById('number');
+        var btn =document.getElementById('btn');
+        var result =[];
+
+
+        function makePrimeArray(n)
+        {
+          let array=[],array1 =[];
+          var count =1;
+
+          		for(var i=0 ;i<n;i++)
+            	{
+              	array[i]=i+1;
+              }
+
+           		for(var k=0 ;k<n;k++)
+              {
+
+        				if(k !=0)
+                {
+                  count=0;
+                };
+
+                for(var i=0;i<k;i++)
+              	{
+
+                  if(array[i]!=1 && array[k]%array[i] ==0)
+                  {
+                    count++;
+                  }
+
+                }
+
+                if(count ==0)
+                {
+                  array1.splice(array1.length,0,array[k]);
+
+                }
+              }
+
+          return array1;
+        }
+
+
+
+
+        btn.addEventListener('click',function()
+        {
+          var result = makePrimeArray(number.value);
+          console.log(result);
+            document.getElementById("output").innerHTML=
+            (number.value+"の値までに存在する素数の数は<span class = 'font'>" +result.length+ "</span>個です。<br>素数は<span class = 'font'>"+result+"</span>です。");
+        });
+
+</script>
+
+</body>
+</html>
